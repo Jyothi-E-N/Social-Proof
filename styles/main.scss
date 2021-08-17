@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;700&display=swap");
+
+$very-dark-magneta: hsl(300, 43%, 22%);
+$soft-pink: hsl(333, 80%, 67%);
+$dark-grayish-magneta: rgb(147, 123, 146);
+$white: hsl(0, 0%, 100%);
+$light-grayish-magneta: hsl(300, 24%, 96%);
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@mixin dispflex($direct: row) {
+  display: flex;
+  flex-direction: $direct;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Spartan", sans-serif;
+  background-image: url("../images/bg-pattern-top-desktop.svg"),
+    url("../images/bg-pattern-bottom-desktop.svg");
+  background-position: right 70vw bottom 50vh, left 40vw top;
+  background-repeat: no-repeat;
+  background-color: $white;
+  @include dispflex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 80%;
+  @include dispflex(column);
+  gap: 80px;
+
+  .top-content {
+    @include dispflex();
+  }
+
+  .customer {
+    width: 100%;
+    @include dispflex();
+    gap: 25px;
+  }
+}
+
+.abt-prdct {
+  .text-block {
+    @include dispflex(column);
+    gap: 10px;
+    width: 70%;
+  }
+
+  h2 {
+    width: 90%;
+    color: $very-dark-magneta;
+    font-size: 35px;
+    letter-spacing: -1.4px;
+    line-height: 2rem;
+  }
+
+  p {
+    font-size: 13px;
+    color: $dark-grayish-magneta;
+    font-weight: 500;
+    line-height: 1rem;
+    letter-spacing: -0.6px;
+  }
+}
+
+.ratings{
+    @include dispflex(column);
+    gap: 20px;
+    width: 80%;
+}
+
+.feedback{
+    width:85%;
+    background-color: $light-grayish-magneta;
+    @include dispflex();
+    height: 45px;
+    align-items: center;
+    border-radius: 5px;
+    gap: 30px;
+    padding-left: 7%;
+
+    .star-text h5{
+        font-size: 15px;
+        color: $very-dark-magneta;
+    }
+}
+
+.report{
+    margin-left: 7%;
+}
+
+.bestTech{
+    margin-left: 14%;
+}
+
+.cus-review{
+    width: 350px;
+    background-color: $very-dark-magneta;
+    border-radius: 5px;
+    padding: 30px;
+    height: 220px;
+
+    @include dispflex(column);
+    gap: 20px;
+    font-size: 15px;
+
+    .img-name{
+        @include dispflex();
+        align-items: center;
+        gap: 10%;
+        height: 50px;
+
+        img{
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        .name{
+            @include dispflex(column);
+            gap: 5px;
+
+            h4{
+                color: $white;
+                letter-spacing: 0.3px;
+            }
+
+            .v-buyer{
+                color: $soft-pink;
+                font-weight: 400;
+            }
+        }
+    }
+    .para p{
+        font-size: 13px;
+        color: $white;
+        line-height: 1rem;
+    }
+}
+
+.irene{
+    margin-top: 15px;
+}
+
+.anne{
+    margin-top: 30px;
+}
+
+@media (max-width: 1100px){
+    .customer{
+        min-height: 220px;
+        .cus-review{
+            height: 100%;
+        }
+    }
+}
+
+@media (max-width: 800px){
+    body{
+        background-image: url("../images/bg-pattern-top-mobile.svg"), url("../images/bg-pattern-bottom-mobile.svg");
+        background-repeat: no-repeat;
+        background-position: left top, right bottom;
+    }
+    .container{
+        width: 95%;
+        padding:50px 0; gap: 50px;
+
+        .top-content{
+            @include dispflex(column); gap:50px;
+            .abt-prdct{
+                text-align: center;
+
+                .text-block{
+                    width: 100%;
+                }
+            }
+
+            .ratings{
+                gap: 15px; width: 100%;
+            }
+            .feedback{
+                margin:0;padding: 10px;width: 100%;
+                @include dispflex(column);
+                height:auto; gap: 10px;
+            }
+        }
+        .customer{
+            @include dispflex(column); gap: 20px;
+            .cus-review{
+                width: 100%;margin:0;
+            }
+        }
+    }
+}
